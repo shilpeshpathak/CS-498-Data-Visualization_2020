@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+   <head style="margin:0;padding:0">
+            <script src="https://d3js.org/d3.v4.min.js"></script>
+            <script type="text/javascript" src="fullpage.js"></script>
+
+            <link rel="stylesheet" type="text/css" href="fullpage.css" />
+            <link rel="stylesheet" type="text/css" href="SEAMarket.css" />
+    </head>
+
+
+    <body style="margin:0; padding:0">
+       
+        <div id="fullpage" >
+            <div id="introSlide"  class="section" data-anchor="intropg">
+                <div id="intro" style="text-align:center">
+                     <h1 style="color:red;"> US COVID-19 Analysis!!!</h1>
+                      <p class="content", style="color:red;">A visualization narrative by Shilpesh Pathak (spathak3@illinois.edu)</p>
+                      
+                </div>
+            </div>
+            <div id="AbtSlide"  class="section" data-anchor="abtvizpg">
+                <div class="content" >
+                    <h1>ABOUT THE VISUALIZATION</h1>
+                    <p class="content"><span class="textHighlight">Messaging</span></p>
+                    <p class="content">COVID-19 pandemic has caused unprecedented public health and economic crises across the world and continues to have same impact; This visualization is intended to present point of view on COVID-19 pandemic that has affected united states in particular (From January to July 25th). As we know by now that covid-19 is not going anytime soon which means conducting tests becomes more and more important, state government(s) are trying to test as many people as possible so that better preventive actions can be taken and this can be seen on recoveries some of the states have seen lately, for example Texas had over 4 million people tested and it is also the state with highest number of recoveries this presents a view that as you conduct more testing, chances of identifying potential positive cases increases thereby giving doctors better chances to effectively treat people(s) and save their life’s.
+                    </p>
+                    <p class="content"><span class="textHighlight">Narrative Structure</span></p>
+                    <p class="content">This narrative visualization uses the <span class="textHighlight">Interactive Slideshow</span> approach to take you through a small use case of COVID-19 dataset generated and maintained by John Hopkins university. </p>
+                    <p class="content"><span class="textHighlight">Scenes</span></p>
+                    <p class="content">A homogeneous template was created using CSS layout and javascript to set up the scenes for this visual story.  Scene transition follows an intuitive approach of sliding up and down via mouse, touch or key-up/down. Slide navigator, along with tool-tip located at the right side of each slide provides a good navigation visual cue.  It also acts as a trigger allowing readers to jump to a specific slide. 
+                    </p>
+                    <p class="content"><span class="textHighlight">Annotations</span></p>
+                    <p class="content">Various tooltips, labels & legends; that display State names, confirmed cases and number of recoveries.  Each data point in the bubble chart is clearly labeled with tooltip showing count of recoveries per state by hovering over the bubble.
+                    </p>
+                    <p class="content"><span class="textHighlight">Parameters</span></p>
+                    <p class="content">The main parameters of this story are US states, overall confirmed cases, number of people tested and number of people recovered.
+                    </p>
+                    <p class="content"><span class="textHighlight">Triggers</span></p>
+                    <p class="content">
+                              "People Tested" selector serves as the mechanism to trigger the highlights of states based on the selected type (e.g. All, Between 0 to 500k, Between 500k to 1 million). Data tooltips appear upon mouse over event.The slide navigator also serves as the trigger allowing readers to jump to a specific slide.
+                    </p>
+                    <br>
+                    <p class="content"><center><i><span class="textHighlight">Note :- </span> <u> A detailed explanation on above mentioned sections can be found in the essay</u>
+                </i></center></p>
+                    </div>
+            </div>
+            <div id="cnfmSlide"  class="section" data-anchor="cnfmdpg" >
+                    <h1>Number of confirmed COVID-19 cases between January to July 25th !</h1>
+                    <div  style="left:50px;position:relative"> 
+                            <div  style="top:100px;left:700px;width:300px;position:absolute"> 
+                                    <p class="content">
+                                     <span class="textHighlight">January end to February:</span><br>This was an early stage where number of confirmed cases where very low; In January we had around 7 cases, February had 24 cases.<br><br>
+                                     <span class="textHighlight">March - July 25th:</span><br>Per JHU dataset,There has been huge shift in number of cases US started reporting, and this can be seen by the sharp increase in the curve from march onwards. <br><br>
+
+                                    </p>
+                            </div>
+                        <svg id="confirmed" ></svg>
+                    </div>
+    
+                </div>
+            
+        
+            
+
+            <div id="citySlide"  class="section" data-anchor="testedpg">
+                <h1>Number of people tested across various states!</h1>
+                <div  style="left:30px;position:relative"> 
+                <span class="textHighlight">People Tested:</span>
+                        <select id="selGeo">
+                            <option value="All">All</option>
+                            <option value="Between 0 to 500k">Between 0 to 500k</option>
+                            <option value="Between 500k to 1 million">Between 500k to 1 million</option>
+                            <option value="Between 1 million to 3 million">Between 1 million to 3 million</option>
+                            <option value="More then 3 million">More then 3 million</option>
+                        </select>  
+                        <div  style="top:0px;left:700px;width:550px;position:absolute"> 
+                                <p class="content">
+                                    The COVID-19 pandemic has caused unprecedented public health and economic crises and for all we know  covid-19 is not going anytime soon which means conducting tests becomes more and more important, state government(s) are trying to test as many people as possible so that better preventive actions can be taken and this can be seen on recoveries some of the states have seen lately.
+                                    To find out how many people got tested in each of thee states we can use following visualization, we have categorized testing count so that we can easily segregate the information.
+                                    From People Tested drop down you can choose various options and particular set(s) of bubbles will be highlighted.</i>
+                                <br>
+                                <br>
+                                <span class="textHighlight">State with high testing rate based on count:</span>California<br><br>
+                                <span class="textHighlight">State with low testing rate based on count:</span>Wyoming<br><br>
+                                <span class="textHighlight">Average testing rate:</span>~986K
+                                
+
+                            </p>
+                        </div>  
+                    <svg id="bubble" style="display:block"></svg>
+                 </div>
+            </div>
+
+            <div id="rcvrdSlide"  class="section" data-anchor="rcvrdpg" >
+                <h1>Number of Recovered COVID-19 cases between January to July 25th !</h1>
+                <div  style="left:50px;position:relative">
+                    <div  style="top:100px;left:700px;width:600px;position:absolute">
+                        <p class="content"> Following bar chart shows Top 10 states with highest number of recoveries as of July 25th, This information clubbed with number of people tested presents a view that as you conduct more testing, chances of identifying potential positive cases increases thereby giving doctors better chances to effectively treat people(s) and save their life’s.<br><br>
+                            <span class="textHighlight">State with high recovery rate by count:</span><br>Texas<br><br>
+                            <span class="textHighlight">State with low recovery rate by count <span style="font-size:11px">(Not shown in the chart but was present in the dataset)</span>:</span><br>Alaska <br><br>
+
+                        </p>
+                        <p class="content"><center><i><span class="textHighlight">Note :- </span> <u> As per JHU - Recovered cases are estimates based on local media reports, and state and local reporting when available, and therefore may be substantially lower than the true number. US state-level recovered cases are from COVID Tracking Project.</u>
+                    </i></center></p>
+                    </div>
+                    <!--                        <button id="btncount" class="button on" >Dish Count over the years</button><br>-->
+                    <svg id="recovered" ></svg>
+                </div>
+
+            </div>
+
+            <div id="refSlide"  class="section" data-anchor="attrpg">
+                        <div class="content" >
+                        <h1>References</h1>
+                        <p class="content"><span class="textHighlight">Github Repo</span></p>
+                        <p class="content"><a style="color:white"  target="_blank" href="https://github.com/shilpeshpathak/CS-498-Data-Visualization">https://github.com/shilpeshpathak/CS-498-Data-Visualization</a>
+                        </p><br>
+                        <p class="content"><span class="textHighlight">The Dataset</span></p>
+                        <p class="content">CSSE at Johns Hopkins University, this datasets was acquired from <a  target="_blank" style="color:white" href="https://github.com/CSSEGISandData/COVID-19">COVID-19</a> Please visit COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University to get additional details.
+                        </p><br>
+                        <p class="content"><span class="textHighlight">Background Image</span></p>
+                        <p class="content">Transmission electron microscopic image: <a style="color:white" target="_blank" href="https://phil.cdc.gov/Details.aspx?pid=23336">https://phil.cdc.gov/Details.aspx?pid=23336/</a>
+                        </p>
+                        </div>
+                </div>
+
+    </div>
+ 
+    
+   
+<script>
+//**********************************************************
+// A data narrative project
+// CS 498 DV
+//**********************************************************
+        new fullpage('#fullpage', {
+            licenseKey: "OPEN-SOURCE-GPLV3-LICENSE",
+            autoScrolling:true,
+            //scrollHorizontally:true,
+            navigation:true,
+            navigationPosition: 'right',
+            anchors:["intropg","cnfmdpg","abtvizpg","testedpg","rcvrdpg","attrpg"],
+            navigationTooltips:['Introduction','About Vizualization','Confirmed Cases','People Tested','Recovered','References'],
+            slidesNavPosition:"left",
+            keyboardScrolling:true,
+            
+            sectionsColor: ['grey','grey','grey','grey','grey','grey'],
+
+            loopBottom:true,
+    
+        });
+
+//
+// Selection trigger: People Tested
+//
+        d3.select("#selGeo").on('change', function(d,i)
+            {
+                var sel = d3.select(this).property('value');
+
+                if (sel == "All")
+                {
+                    var bub = document.querySelectorAll('[id^="bubble-"]');
+                    bub.forEach(function(c) {document.getElementById(c.id).style.opacity = "1";
+                                             document.getElementById(c.id).style.transition = "opacity 0.9s"});
+                }
+                else
+                {
+                    var bub = document.querySelectorAll('[id^="bubble-"]');
+                    bub.forEach(function(c) {document.getElementById(c.id).style.opacity = "0.2";
+                                             document.getElementById(c.id).style.transition = "opacity 0.9s"});
+                    
+                    var regx = '[id$="-'+sel+'"]';
+                    var elem = document.querySelectorAll(regx);
+                    elem.forEach(function(c) {document.getElementById(c.id).style.opacity = "1";
+                                                document.getElementById(c.id).style.transition = "opacity 0.9s"});
+                }
+            }
+        );
+
+//
+// Setting up charts
+//
+        var colorscheme = d3.scaleOrdinal(d3.schemeCategory20c);
+
+        var parseDate = d3.timeParse("%Y")
+        var bisectDate = d3.bisector(function(d) { return d.date; }).left;
+        var formatValue = d3.format(",.0f");
+        var formatCurrency = function(d) { return "$" + formatValue(d); };
+
+        var dataset;
+
+        var chartWidth = 760,
+            chartHeight = 600,
+            bubbleWidth = 760,
+            bubbleHeight = 720;
+
+
+        var margin = {top: 70, right: 80, bottom: 30, left: 60},
+            width = +chartWidth - margin.left - margin.right,
+            height = +chartHeight - margin.top - margin.bottom;
+
+        var confirmedLC = d3.select("#confirmed")
+            .attr("width", chartWidth)
+            .attr("height",chartHeight);
+
+        var reecoveredBC = d3.select("#recovered")
+            .attr("width", chartWidth)
+            .attr("height",chartHeight);
+
+        var metroBC = d3.select("#bubble")
+            .attr("width", bubbleWidth)
+            .attr("height",bubbleHeight);
+
+         var pack = d3.pack()
+         .size([bubbleWidth, bubbleHeight])   
+         .padding(1.5);
+  
+
+        confirmedCount();
+        peopleTested();
+        loadrecovered();
+
+
+    function confirmedCount()
+    {
+        d3.tsv("data/time_series_covid19_confirmed_US.tsv",
+         function(d) {
+                return {
+                    month: d3.timeParse("%Y-%m-%d")(d.month),
+                    no_of_cases: +d.no_of_cases
+                };
+
+              }, function(data) { drawLC(data) }
+
+        );
+    }
+
+    function peopleTested()
+        {
+            d3.tsv("data/daily_state_report.tsv",
+                function(d) {
+                        return {
+                                name: d.name,
+                                times_appeared: +d.times_appeared,
+                                tested_count: d.tested_count
+                                };
+
+                    }, function(data) {drawBubble(data) }
+
+                );
+            
+        }
+
+    function loadrecovered()
+        {
+             d3.tsv("data/state_recovery.tsv",
+                function(d) {
+                        return {
+                                state: d.state,
+                                recovered: d.recovered
+                                };
+
+                }, function(data) { drawBC(data) }
+
+               );
+        }
+
+    //Draw bubble chart
+    function drawBubble(dataset)
+    {
+        var tooltip = d3.select("body")
+                       .append("div")
+                       .style("position", "absolute")
+                        .style("z-index", "10")
+                        .style("visibility", "hidden")
+                        .style("color", "white")
+                        .style("padding", "8px")
+                        .style("background-color", "rgba(0, 0, 0, 0.75)")
+                        .style("border-radius", "6px")
+                        .style("font", "12px sans-serif")
+                        .text("tooltip");
+  
+        var root = d3.hierarchy({children: dataset})
+            .sum(function(d) {  return d.times_appeared; });
+        
+
+        var node = metroBC.selectAll(".node")
+            .data(pack(root).leaves())
+            .enter().append("g")
+            .attr("class", "node")
+            .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+
+        node.append("title")
+                    .text(function(d) {
+                        return "State: "+ d.data.name + "\n" + "No. of people tested: "+ d.data.tested_count + "\n" + "Count: "+formatValue(d.data.times_appeared/1);
+                    });
+
+        node
+            .append("circle")
+            .attr("id", function(d) { return "bubble-"+d.data.name + "-" + d.data.tested_count; })
+            .attr("r", function(d) { return d.r ; })
+            .style("fill", function(d,i) { return colorscheme(i); })
+            .on("mouseover", function(d) {
+              tooltip.text(d.data.times_appeared);
+              tooltip.style("visibility", "visible");
+                })
+<!--            .on("mousemove", function() {-->
+<!--                return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");-->
+<!--                })-->
+             .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
+
+        node.append("text")
+            .attr("id", function(d) { return "bubble-txt-"+d.data.name + "-" + d.data.tested_count; })
+                    .attr("dy", "0.5em")
+                    .style("text-anchor", "middle")
+                    .text(function(d) {
+                        return d.data.name;
+                    })
+                    .attr("class", "bubble")
+                    .attr("font", "Arial")
+                    .attr("font-size", function(d){
+                        return d.r/4;
+                    });
+
+    }
+
+    //Draw line chart
+    function drawLC(dataset)
+    {
+        var x = d3.scaleTime()
+                .rangeRound([0,width]);
+        
+        var y = d3.scaleLinear()
+                .rangeRound([height,0]);
+        
+        var line = d3.line()
+                .x(function(d) {return x(d.month); })
+                .y(function(d) {return y(d.no_of_cases);} );
+
+        x.domain(d3.extent(dataset, function(d) {return d.month;}));
+        y.domain(d3.extent(dataset, function(d) {return d.no_of_cases;}));
+
+        g= confirmedLC.append("g").attr("transform","translate("+margin.left+","+margin.top+")");
+
+        var path = g.append("path")
+                .datum(dataset)
+                .attr("class","line")
+                .attr("d",line)
+        
+        //lowest
+        anHPLow = g.append("text")
+            .attr("x", x(d3.timeParse("%Y-%m-%d")("2020-01-31")))
+            .attr("y", y(7)-20)
+            .attr("class","annotation")
+            .style("text-anchor", "middle")
+            
+        anHPLow.append("tspan")
+            .attr("x", x(d3.timeParse("%Y-%m-%d")("2020-01-31"))+80)
+            .attr("dy","0.01em")
+            .text("Initial confirmed count");
+
+        anHPLow.append("tspan")
+            .attr("x", x(d3.timeParse("%Y-%m-%d")("2020-01-31"))+70)
+            .attr("dy","1.01em")
+            .text("7");
+
+        //highest
+        anHPHigh = g.append("text")
+            .attr("x", x(d3.timeParse("%Y-%m-%d")("2020-07-25"))-10)
+            .attr("y", y(4178021))
+            .attr("class","annotation")
+            .style("text-anchor", "middle")
+        
+        anHPHigh.append("tspan")
+            .attr("x", x(d3.timeParse("%Y-%m-%d")("2020-07-25"))-70)
+            .attr("dy","1.0em")
+            .text("Confirmed cases till date!");
+
+        anHPHigh.append("tspan")
+            .attr("x", x(d3.timeParse("%Y-%m-%d")("2020-07-25"))-50)
+            .attr("dy","1.0em")
+            .text("4.1M");
+        
+        g.append("g")
+            .attr("class","axWht")
+            .attr("transform","translate(0,"+(height+3)+")")
+            .call(d3.axisBottom(x))
+            .select(".domain");
+<!--            .remove();-->
+
+        g.append("g")
+            .attr("class","axWht")
+            .call(d3.axisLeft(y))
+            .append("text")
+            .attr("class","axis")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 6)
+            .attr("dy", "0.71em")
+            .attr("text-anchor", "end")
+            .text("No. of cases");
+
+
+        var focus = g.append("g")
+                .attr("class", "focus")
+                .style("display", "none");
+
+
+
+        focus.append("circle")
+            .attr("r", 7.5);
+
+        focus.append("text")
+            .attr("class","datalabel")
+            .attr("x", 15)
+            .attr("dy", ".31em");
+
+        confirmedLC.append("rect")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+            .attr("class", "overlay")
+            .attr("width", width)
+            .attr("height", height)
+            .on("mouseover", function() { focus.style("display", null); })
+            .on("mouseout", function() { focus.style("display", "none"); })
+            .on("mousemove", mousemove);
+
+        //surface data tooltips
+        function mousemove() {
+        var x_point = x.invert(d3.mouse(this)[0]);
+            i = bisectDate(dataset, x_point);
+            d0 = dataset[i - 1];
+            d1 = dataset[i];
+            if (d0 != "undefined" && d1 != "undefined" )
+            {
+                //find the closer date value to x-cor of the mouse position
+                    d = x_point - d0.month > d1.month - x_point ? d1 : d0;
+                focus.attr("transform", "translate(" + x(d.month) + "," + y(d.no_of_cases) + ")");
+                focus.select("text").text(function() { return formatCurrency(d.no_of_cases); });
+            }
+        }
+
+}
+
+    //Draw bar chart
+    function drawBC(dataset)
+    {
+
+        var tooltip = d3.select("body")
+                       .append("div")
+                       .style("position", "absolute")
+                        .style("z-index", "10")
+                        .style("visibility", "hidden")
+                        .style("color", "white")
+                        .style("padding", "8px")
+                        .style("background-color", "rgba(0, 0, 0, 0.75)")
+                        .style("border-radius", "6px")
+                        .style("font", "12px sans-serif")
+                        .text("tooltip");
+
+        var x = d3.scaleBand()
+                .rangeRound([0,width]).padding(0.4);
+
+        var y = d3.scaleLinear()
+                .rangeRound([height,0]);
+
+        g= reecoveredBC.append("g").attr("transform","translate("+margin.left+","+margin.top+")");
+
+        x.domain(dataset.map(function(d) { return d.state; }));
+        y.domain([0, 221510]);//d3.max(dataset, function(d) { return d.recovered; })]);
+
+        g.append("g").attr("transform", "translate(0," + height + ")")
+         .call(d3.axisBottom(x));
+
+        g.append("text")
+        .attr("transform", "translate(" + (width / 2) + " ," + (height + margin.bottom) + ")")
+        .attr("stroke", "#feda6a")
+        .style("text-anchor", "middle")
+        .style("font", "12px sans-serif")
+        .text("US States");
+
+        g.append("g").call(d3.axisLeft(y).tickFormat(function(d){
+             return d;
+         }).ticks(10))
+         .append("text")
+         .attr("transform", "rotate(-90)")
+         .attr("y", 6)
+         .attr("dy", "0.5em")
+         .attr("text-anchor", "end")
+         .attr("stroke", "#feda6a")
+         .text("No. of recovered");
+
+         g.selectAll(".bar")
+         .data(dataset)
+         .enter().append("rect")
+         .attr("class", "bar")
+         .attr("x", function(d) { return x(d.state); })
+         .attr("y", function(d) { return y(d.recovered); })
+         .attr("width", x.bandwidth())
+         .attr("height", function(d) { return height - y(d.recovered); })
+         .style("fill", function(d,i) { return colorscheme(i); })
+         .on("mouseover", function(d) {
+              tooltip.html("State Name: "+ d.state + "<br>" + "Recovered: "+ d.recovered);
+              tooltip.style("visibility", "visible");
+              })
+      .on("mousemove", function() {
+          return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");
+      })
+      .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
+
+
+}
+
+
+</script>  
+
+</body>
+
+
+</html>
